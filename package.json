@@ -1,0 +1,19 @@
+{
+  "name": "review-word-cloud",
+  "version": "1.0.0",
+  "description": "A node module that takes in a list of reviews that you would find on online stores and creates a word cloud json object.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheBenjiNecessity/review-word-cloud.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheBenjiNecessity/review-word-cloud/issues"
+  },
+  "homepage": "https://github.com/TheBenjiNecessity/review-word-cloud#readme"
+}
