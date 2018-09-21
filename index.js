@@ -9,16 +9,19 @@ var wordlist = require("./words.json");
   * @param string comment - the review comment to be parsed.
   * @return obj - a dictionary of word 'weights'.
   */
-module.exports = function wordCloudDict(comment) {
-    // Strip out all punctuation and special characters.
-    comment = comment.toLowerCase().replace(/[^a-z ]/g, '');
-    var words = comment.split(' ');
+module.exports = function wordCloudDict(comments) {
     var wordDict = [];
 
-    words.forEach(word => {
-        if (wordListContains(word)) {
-            wordDict[word] = wordDict[word] ? wordDict[word] + 1 : 1;
-        }
+    comments.forEach(comment => {
+        // Strip out all punctuation and special characters.
+        comment = comment.toLowerCase().replace(/[^a-z ]/g, '');
+        var words = comment.split(' ');
+
+        words.forEach(word => {
+            if (wordListContains(word)) {
+                wordDict[word] = wordDict[word] ? wordDict[word] + 1 : 1;
+            }
+        });
     });
 
     return wordDict;
