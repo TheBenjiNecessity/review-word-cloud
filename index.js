@@ -14,12 +14,13 @@ module.exports = function wordCloudDict(comments) {
 
     comments.forEach(comment => {
         // Strip out all punctuation and special characters.
-        comment = comment.toLowerCase().replace(/[^a-z ]/g, '');
         var words = comment.split(' ');
 
         words.forEach(word => {
-            if (wordListContains(word)) {
-                wordDict[word] = wordDict[word] ? wordDict[word] + 1 : 1;
+            if (wordDict[word]) {
+                wordDict[word]++; 
+            } else if (wordListContains(word)) {
+                wordDict[word] = 1;
             }
         });
     });
@@ -39,9 +40,10 @@ function wordListContains(word) {
 
     while (l <= r) {
         var m = Math.floor((l + r) / 2);
-        if (wordlist[m] < word)
+        var compare = wordlist[m].localeCompare(word);
+        if (compare < 0)
             l = m + 1
-        else if (wordlist[m] > word)
+        else if (compare > 0)
             r = m - 1
         else
             return true;
