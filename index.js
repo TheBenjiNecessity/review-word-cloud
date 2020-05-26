@@ -13,7 +13,6 @@ module.exports = function wordCloudDict(comments) {
     var wordDict = [];
 
     comments.forEach(comment => {
-        // Strip out all punctuation and special characters.
         var words = comment.split(' ');
 
         words.forEach(word => {
